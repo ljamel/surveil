@@ -29,6 +29,9 @@ if [ -d "$chemin" ]; then
 			
 			# Envoie du mail
 			echo "Le MD5sum du dossier $chemin a changé !" | mail -s "MD5sum changé" votre@adresse.mail
+			
+			# mise à jours du md5
+			md5sum "$chemin"/* >> md5sum.txt
 		fi
 		
 		# Attente de 10 secondes avant une nouvelle vérification
