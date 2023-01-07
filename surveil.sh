@@ -7,6 +7,10 @@ sudo apt-get install bsd-mailx
 echo "Veuillez choisir un dossier :"
 read chemin
 
+# Demande votre mail
+echo "Veuillez mail :"
+read mail
+
 # Vérifie que le dossier existe
 if [ -d "$chemin" ]; then
 	# Création du fichier texte
@@ -28,7 +32,7 @@ if [ -d "$chemin" ]; then
 			oldmd5="$md5"
 			
 			# Envoie du mail
-			echo "Le MD5sum du dossier $chemin a changé !" | mail -s "MD5sum changé" votre@adresse.mail
+			echo "Le MD5sum du dossier $chemin a changé !" | mail -s "MD5sum changé" $mail
 			
 			# mise à jours du md5
 			md5sum "$chemin"/* > md5sum.txt
